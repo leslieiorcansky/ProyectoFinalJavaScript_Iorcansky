@@ -70,9 +70,6 @@
 }
 
 .contactoTitulo {
-    font-size: 4rem;
-    font-weight: 900;
-    height: 10rem;
-    color: #F2071B;
-    -webkit-text-stroke: 4px #D90718;
+    color: black;
+    margin-bottom: 10px;
 }

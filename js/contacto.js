@@ -19,6 +19,8 @@ form.addEventListener('submit', (e) => {
         texto
     }
 
+    alert('El formulario se ha enviado con exito');
+    
     console.log(datos);
 
     form.reset();

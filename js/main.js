@@ -31,7 +31,7 @@ const productos = [
   },
 ];
 
-// let carrito = [];
+let carrito = [];
 
 // let seleccion = prompt('Bienvenidos a Lidherma! ¿Desea comprar algo? si o no');
 
