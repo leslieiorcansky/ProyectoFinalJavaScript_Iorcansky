@@ -1,106 +1,71 @@
-const productos = [
-  {
-    id:1,
-    nombre: 'Lightening Face Cream',
-    precio: 4120,
-    img: './img/Brightening-Serum.jpg'
-  },
-  {
-    id:2,
-    nombre: 'Hand Cream',
-    precio: 1540,
-    img: './img/Hand-Cream.jpg'
-  },
-  {
-    id:3,
-    nombre: 'Brightening Serum',
-    precio: 3670,
-    img: './img/Brightening-Serum.jpg'
-  },
-  {
-    id:4,
-    nombre: 'Firming Body Cream',
-    precio: 3100,
-    img: './img/Firming-Body-Cream.jpg'
-  },
-  {
-    id:5,
-    nombre: 'Plasma Infusion Serum',
-    precio: 3160,
-    img: './img/Plasma-Infusion-Serum.jpg'
-  },
-];
+const tienda = document.getElementById('tienda');
+const verCarrito = document.getElementById('verCarrito');
+const planillaContenido = document.getElementById('planillaContenido');
 
 let carrito = [];
 
-// let seleccion = prompt('Bienvenidos a Lidherma! ¿Desea comprar algo? si o no');
+productos.forEach((producto) => {
+  let cards = document.createElement('div');
+  cards.className = 'card';
+  cards.innerHTML = `
+  <img src='${producto.img}'>
+  <h5 class ='nombre' >${producto.nombre}</h5>
+  <p class='precio'>$ ${producto.precio}</p>
+  `;
+tienda.append(cards);
 
-// while (seleccion != 'si' && seleccion !='SI' && seleccion != 'no' && seleccion != 'NO') {
-//   alert('por favor ingresa si o no');
-//   seleccion = prompt('Bienvenidos a Lidherma! ¿Desea comprar algo? si o no');
-// }
+let comprar = document.createElement('button');
+comprar.innerText = 'AÑADIR AL CARRITO';
+comprar.className = 'btn btn-danger buscador';
 
-// if (seleccion == 'si') {
-//   alert('A continuación la lista de productos');
-//   let todosLosProductos = productos.map((producto) => producto.nombre + ' ' + '$' + producto.precio);
-//   alert(todosLosProductos.join(' - '));
-// } else if (seleccion == 'no') {
-//   alert('¡Gracias por visitar nuestra página! Te esperamos pronto!');
-// }
+cards.append(comprar);
 
-// while (seleccion != 'no') {
-//   let producto = prompt('Escribe el producto que desea comprar: 1- Lightening Face Cream 2- Hand Cream 3- Brightening Serum 4-Firming Body Cream 5- Plasma Infusion Serum');
-//   let precio = 0;
+comprar.addEventListener('click', () => {
+  carrito.push({
+    id: producto.id,
+    img: producto.img,
+    nombre: producto.nombre,
+    precio: producto.precio,
+  })
+  console.log(carrito);
+});
+});
 
-//   if (
-//     producto == 'Lightening Face Cream' ||
-//     producto == 'Hand Cream' ||
-//     producto == 'Brightening Serum' ||
-//     producto == 'Firming Body Cream' ||
-//     producto == 'Plasma Infusion Serum'
-//   ) {
-//     switch (producto) {
-//       case 'Lightening Face Cream':
-//         precio = 4120;
-//         break;
-//       case 'Hand Cream':
-//         precio = 1540;
-//         break;
-//       case 'Brightening Serum':
-//         precio = 3670;
-//         break;
-//       case 'Firming Body Cream':
-//         precio = 3100;
-//         break;
-//       case 'Plasma Infusion Serum':
-//         precio = 3160;
-//         break;
-//       default:
-//         alert('No tenemos el producto ingresado. ¿Desea ingresar otro?');
-//         break;
-//     }
-//     let unidades = Number(prompt('¿Cuantas unidades de ese producto queres llevar?'));
-//     carrito.push({ producto, unidades, precio });
-//   } else {
-//     alert('No tenemos ese producto');
-//   }
 
-//   seleccion = prompt('¿Quiere seguir comprando? si o no');
+verCarrito.addEventListener('click', () => {
+  planillaContenido.innerHTML = '';
+  planillaContenido.style.display = 'flex';
+  const planillaHeader = document.createElement('div');
+  planillaHeader.className = 'PlanillaHeader';
+  planillaHeader.innerHTML = `
+  <h1 class='planillaHeaderTitulo'>Carrito:</h1>
+  `
+  planillaContenido.append(planillaHeader);
 
-//   while (seleccion == 'no') {
-//     alert('¡Gracias por la compra!');
+  const planillaboton = document.createElement('h1');
+  planillaboton.innerText = 'x';
+  planillaboton.className = 'planillaBotonHeader';
 
-//     carrito.forEach((carritoFinal) => {
-//       console.log(
-//         `producto ${carritoFinal.producto}, unidades: ${carritoFinal.unidades}, total a pagar por producto: ${
-//           carritoFinal.unidades * carritoFinal.precio
-//         }`
-//       );
-//     });
-//     break;
-//   }
-// }
+  planillaboton.addEventListener('click', () => {
+    planillaContenido.style.display = 'none';
+  });
 
-// const total = carrito.reduce((acc, producto) => acc + producto.precio * producto.unidades, 0);
-// console.log(`el total a pagar por su compra es de: ${total}`);
+  planillaHeader.append(planillaboton);
 
+  carrito.forEach((producto) => {
+  let contenidoCarrito = document.createElement('div');
+  contenidoCarrito.className = 'PlanillaContenido';
+  contenidoCarrito.innerHTML = `
+    <img src='${producto.img}'>
+    <h3>${producto.nombre}</h3>
+    <p>${producto.precio}</p>
+  `;
+  planillaContenido.append(contenidoCarrito);
+  })
+
+  const total = carrito.reduce((acc,el) => acc + el.precio,0);
+  const totalCompra =document.createElement('div');
+  totalCompra.className = 'totalContenido';
+  totalCompra.innerHTML = `Total a pagar: ${total}`;
+  planillaContenido.append(totalCompra);
+});

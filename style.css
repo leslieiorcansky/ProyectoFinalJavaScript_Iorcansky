@@ -26,7 +26,7 @@
     display: flex;
     justify-content: center;
     height: 10rem;
-    position: sticky;
+    /* position: sticky; */
     top: 0;
     z-index: 10; }
   
@@ -73,3 +73,44 @@
     color: black;
     margin-bottom: 10px;
 }
+
+/* TARJETAS */
+.tienda {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  max-width: 300px;
+  margin:auto;
+  text-align: center;
+  width: 100%;
+}
+
+.card img { 
+  width: 90%;
+  height: 250px; 
+}
+
+.nombre {
+  color: black;
+  font-size: 20px;
+}
+.precio {
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
