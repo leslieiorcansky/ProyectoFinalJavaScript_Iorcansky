@@ -38,7 +38,7 @@ verCarrito.addEventListener('click', () => {
   const planillaHeader = document.createElement('div');
   planillaHeader.className = 'PlanillaHeader';
   planillaHeader.innerHTML = `
-  <h1 class='planillaHeaderTitulo'>Carrito:</h1>
+  <h1 class='planillaHeaderTitulo'>CARRITO DE COMPRAS:</h1>
   `
   planillaContenido.append(planillaHeader);
 
@@ -58,7 +58,7 @@ verCarrito.addEventListener('click', () => {
   contenidoCarrito.innerHTML = `
     <img src='${producto.img}'>
     <h3>${producto.nombre}</h3>
-    <p>${producto.precio}</p>
+    <p> $${producto.precio}</p>
   `;
   planillaContenido.append(contenidoCarrito);
   })
