@@ -69,3 +69,35 @@ verCarrito.addEventListener('click', () => {
   totalCompra.innerHTML = `Total a pagar: ${total}`;
   planillaContenido.append(totalCompra);
 });
+
+
+//BUSCADOR
+const buscador =document.getElementById('buscador');
+const boton =document.getElementById('boton');
+const resultado = document.getElementById('resultado');
+
+const filtrar = () => {
+  resultado.innerHTML = '';
+
+  const texto = buscador.value.toLowerCase();
+
+  for(let producto of productos){
+    let nombre = producto.nombre.toLowerCase();
+    if(nombre.indexOf(texto) !== -1){
+      resultado.innerHTML += `
+      <li>${producto.nombre}</li>
+      <li>$${producto.precio}</li>
+      <li><img src='${producto.img}'></li>
+      `
+    }
+  }
+  if(resultado.innerHTML === ''){
+    resultado.innerHTML += `
+    <li>Producto no encontrado</li>
+    `
+  }
+}
+boton.addEventListener('click', filtrar)
+buscador.addEventListener('keyup', filtrar)
+
+filtrar();
