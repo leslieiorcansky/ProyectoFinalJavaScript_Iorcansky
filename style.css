@@ -191,17 +191,47 @@
 }
 
 #resultado {
-    right: 20px;
+  position: fixed;
+  top: 165px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  background-color: #fff;
+  z-index: 8;
+
+    /* right: 20px;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10;
-    display: block;
+    display: block; */
+}
+
+#resultado li {
+  display: block;
+  width: 1200px;
+  color: #777777;
+  padding: 12px 20px;
+  font-size: 20px;
+  text-align: center;
+}
+#resultado li:hover{
+  background-color: #f3f3f3;
 }
 
 #resultado li img {
   height: 100px;
     width: 100px;
 
+}
+
+#cover-ctn-search {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 7;
+  display: none;
 }
