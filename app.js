@@ -95,6 +95,9 @@ const filtrar = () => {
     <li>Producto no encontrado</li>
     `
   }
+  if(buscador.value == ''){
+    resultado.innerHTML  = '';
+  };
 }
 
 buscador.addEventListener('keyup', filtrar)
