@@ -2,8 +2,18 @@ const tienda = document.getElementById('tienda');
 const verCarrito = document.getElementById('verCarrito');
 const planillaContenido = document.getElementById('planillaContenido');
 
-let carrito = [];
 
+
+
+
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+
+
+
+
+
+//CARDS
 productos.forEach((producto) => {
   let cards = document.createElement('div');
   cards.className = 'card';
@@ -17,6 +27,7 @@ tienda.append(cards);
 let comprar = document.createElement('button');
 comprar.innerText = 'AÑADIR AL CARRITO';
 comprar.className = 'btn btn-danger buscador';
+// comprar.id = `button${producto.id}`;
 
 cards.append(comprar);
 
@@ -26,12 +37,20 @@ comprar.addEventListener('click', () => {
     img: producto.img,
     nombre: producto.nombre,
     precio: producto.precio,
-  })
+    cantidad: producto.cantidad
+  });
+  
+  localStorage.setItem('carrito',  JSON.stringify(carrito));
   console.log(carrito);
 });
 });
 
 
+
+
+
+
+//MODAL
 verCarrito.addEventListener('click', () => {
   planillaContenido.innerHTML = '';
   planillaContenido.style.display = 'flex';
@@ -59,6 +78,7 @@ verCarrito.addEventListener('click', () => {
     <img src='${producto.img}'>
     <h3>${producto.nombre}</h3>
     <p> $${producto.precio}</p>
+
   `;
   planillaContenido.append(contenidoCarrito);
   })
@@ -68,7 +88,12 @@ verCarrito.addEventListener('click', () => {
   totalCompra.className = 'totalContenido';
   totalCompra.innerHTML = `Total a pagar: $${total}`;
   planillaContenido.append(totalCompra);
+
 });
+
+
+
+
 
 
 //BUSCADOR

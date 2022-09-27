@@ -191,10 +191,12 @@
 }
 
 #resultado {
-  position: fixed;
+  position: static;
   top: 165px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 60%;
+  align-items: center;
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
   width: 1200px;
   background-color: #fff;
   z-index: 8;
