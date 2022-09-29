@@ -237,3 +237,19 @@
   z-index: 7;
   display: none;
 }
+
+.borrarProducto {
+  cursor: pointer;
+}
+
+.cantidadCarrito {
+  background-color: #D90718;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  padding: 4px;
+  top: 37px;
+  right: 14px;
+  position: absolute;
+  display: none;
+}

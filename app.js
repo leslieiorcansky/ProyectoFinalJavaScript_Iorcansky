@@ -1,6 +1,7 @@
 const tienda = document.getElementById('tienda');
 const verCarrito = document.getElementById('verCarrito');
 const planillaContenido = document.getElementById('planillaContenido');
+const cantidadCarrito = document.getElementById('cantidadCarrito');
 
 
 
@@ -32,16 +33,27 @@ comprar.className = 'btn btn-danger buscador';
 cards.append(comprar);
 
 comprar.addEventListener('click', () => {
+
+const repetir = carrito.some((repetirProducto) => repetirProducto.id === producto.id);
+
+if(repetir){
+  carrito.map((prod) => {
+    if(prod.id === producto.id){
+      prod.cantidad++;
+    }
+  });
+}else {
   carrito.push({
     id: producto.id,
     img: producto.img,
     nombre: producto.nombre,
     precio: producto.precio,
-    cantidad: producto.cantidad
+    cantidad: producto.cantidad,
   });
-  
+}
   localStorage.setItem('carrito',  JSON.stringify(carrito));
   console.log(carrito);
+  carritoCounter();
 });
 });
 
@@ -50,46 +62,7 @@ comprar.addEventListener('click', () => {
 
 
 
-//MODAL
-verCarrito.addEventListener('click', () => {
-  planillaContenido.innerHTML = '';
-  planillaContenido.style.display = 'flex';
-  const planillaHeader = document.createElement('div');
-  planillaHeader.className = 'PlanillaHeader';
-  planillaHeader.innerHTML = `
-  <h1 class='planillaHeaderTitulo'>CARRITO DE COMPRAS:</h1>
-  `
-  planillaContenido.append(planillaHeader);
 
-  const planillaboton = document.createElement('h1');
-  planillaboton.innerText = 'x';
-  planillaboton.className = 'planillaBotonHeader';
-
-  planillaboton.addEventListener('click', () => {
-    planillaContenido.style.display = 'none';
-  });
-
-  planillaHeader.append(planillaboton);
-
-  carrito.forEach((producto) => {
-  let contenidoCarrito = document.createElement('div');
-  contenidoCarrito.className = 'PlanillaContenido';
-  contenidoCarrito.innerHTML = `
-    <img src='${producto.img}'>
-    <h3>${producto.nombre}</h3>
-    <p> $${producto.precio}</p>
-
-  `;
-  planillaContenido.append(contenidoCarrito);
-  })
-
-  const total = carrito.reduce((acc,el) => acc + el.precio,0);
-  const totalCompra =document.createElement('div');
-  totalCompra.className = 'totalContenido';
-  totalCompra.innerHTML = `Total a pagar: $${total}`;
-  planillaContenido.append(totalCompra);
-
-});
 
 
 
