@@ -54,7 +54,7 @@
         carrito = carrito.filter((carritoId) => {
             return carritoId !== foundId;   
         });
-        localStorage.setItem('carrito',  JSON.stringify(carrito));
+        guardarCarritoStorage();
         console.log(carrito);
         carritoCounter();
         pintarCarrito();

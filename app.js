@@ -54,7 +54,7 @@ if(repetir){
     cantidad: producto.cantidad,
   });
 }
-  localStorage.setItem('carrito',  JSON.stringify(carrito));
+  guardarCarritoStorage();
   console.log(carrito);
   carritoCounter();
 });
