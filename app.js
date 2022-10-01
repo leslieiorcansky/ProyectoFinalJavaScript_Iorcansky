@@ -35,7 +35,18 @@ comprar.className = 'btn btn-danger buscador';
 
 cards.append(comprar);
 
+
 comprar.addEventListener('click', () => {
+
+   Toastify({
+        text: `Tu producto ${producto.nombre} fue añadido al carrito`,
+        duration: 3000,
+        gravity: 'bottom',
+        style: {
+            background: 'linear-gradient(to right, #F2071B, #D90718)'
+        }
+    }).showToast();
+
 
 const repetir = carrito.some((repetirProducto) => repetirProducto.id === producto.id);
 

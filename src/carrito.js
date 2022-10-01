@@ -40,8 +40,32 @@
     eliminar.className = 'borrarProducto';
     contenidoCarrito .append(eliminar);
 
-    eliminar.addEventListener('click', eliminarProducto);
-    });
+    // eliminar.addEventListener('click', eliminarProducto);
+
+    eliminar.addEventListener('click', (event) => {
+        event.stopPropagation();
+        if (event.target.classList.contains('borrarProducto')) {
+            Swal.fire({
+                title: `¿Esta seguro que quiere eliminar ${producto.nombre}?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    eliminarProducto(event.target.value);
+                    Swal.fire(
+                        'Eliminado!',
+                        'El producto ha sido eliminado',
+                        'success'
+                    )
+                }
+            })
+        }
+    })
+});
 
     const total = carrito.reduce((acc,el) => acc + (el.precio * el.cantidad),0);
     const totalCompra =document.createElement('div');
