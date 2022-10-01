@@ -19,7 +19,12 @@ form.addEventListener('submit', (e) => {
         texto
     }
 
-    alert('El formulario se ha enviado con exito');
+    Swal.fire({
+        icon: 'success',
+        title: 'El formulario se ha enviado con exito',
+        showConfirmButton: false,
+        timer: 2000
+      })
     
     console.log(datos);
 

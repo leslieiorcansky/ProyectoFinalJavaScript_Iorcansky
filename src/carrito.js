@@ -1,5 +1,7 @@
-    const pintarCarrito = () => {    planillaContenido.innerHTML = '';
-    planillaContenido.style.display = 'flex';
+    const pintarCarrito = () => {    
+        planillaContenido.innerHTML = '';
+        planillaContenido.style.display = 'flex';
+        
     const planillaHeader = document.createElement('div');
     planillaHeader.className = 'PlanillaHeader';
     planillaHeader.innerHTML = `
@@ -21,11 +23,13 @@
     let contenidoCarrito = document.createElement('div');
     contenidoCarrito.className = 'PlanillaContenido';
     contenidoCarrito.innerHTML = `
-                    <img src='${producto.img}'>
-                    <h3>${producto.nombre}</h3>
-                    <p> $${producto.precio}</p>
-                    <p> Cantidad: ${producto.cantidad}</p> 
-                    <p> Total: ${producto.cantidad * producto.precio}</p> 
+    <h1> 
+    <img src='${producto.img}'> </br>
+    ${producto.nombre} </br>
+    $${producto.precio} </br>
+    Cantidad: ${producto.cantidad} </br>
+    Total: ${producto.cantidad * producto.precio}
+    </h1>           
     `;
     planillaContenido.append(contenidoCarrito);
 

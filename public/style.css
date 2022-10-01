@@ -115,7 +115,7 @@
 
 /* MODAL */
 .planillaContenido {
-  width: 1000px;
+  width: 1200px;
   margin: 0 10%;
   max-height: 60vh;
   color: black;
@@ -140,17 +140,25 @@
   display: none;
 }
 
+.planillaContenido h1 {
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+}
+
 .PlanillaHeader{
   display: flex;
   justify-content: space-around;
   background-color: #fff;
   color: black;
+
   width: 100%;
 }
 
 .planillaHeaderTitulo {
   justify-self: start;
-  font-size: 20px;
+  font-size: 50px;
   margin-top: 20px;
 }
 
@@ -240,6 +248,7 @@
 
 .borrarProducto {
   cursor: pointer;
+  margin-left: 70px;
 }
 
 .cantidadCarrito {
