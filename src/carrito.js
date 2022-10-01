@@ -54,10 +54,13 @@
         carrito = carrito.filter((carritoId) => {
             return carritoId !== foundId;   
         });
+        localStorage.setItem('carrito',  JSON.stringify(carrito));
+        console.log(carrito);
         carritoCounter();
         pintarCarrito();
     };
 
+    
     const carritoCounter = () => {
         cantidadCarrito.style.display = 'block';
         cantidadCarrito.innerText = carrito.length;

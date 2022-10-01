@@ -25,6 +25,9 @@ productos.forEach((producto) => {
   `;
 tienda.append(cards);
 
+carritoCounter();
+
+
 let comprar = document.createElement('button');
 comprar.innerText = 'AÑADIR AL CARRITO';
 comprar.className = 'btn btn-danger buscador';
