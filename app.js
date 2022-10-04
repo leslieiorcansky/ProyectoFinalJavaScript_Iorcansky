@@ -40,7 +40,7 @@ comprar.addEventListener('click', () => {
 
    Toastify({
         text: `Tu producto ${producto.nombre} fue añadido al carrito`,
-        duration: 3000,
+        duration: 2000,
         gravity: 'bottom',
         style: {
             background: 'linear-gradient(to right, #F2071B, #D90718)'

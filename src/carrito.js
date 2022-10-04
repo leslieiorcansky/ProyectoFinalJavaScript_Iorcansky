@@ -23,20 +23,20 @@
     let contenidoCarrito = document.createElement('div');
     contenidoCarrito.className = 'PlanillaContenido';
     contenidoCarrito.innerHTML = `
-    <h1> 
-    <img src='${producto.img}'> </br>
-    ${producto.nombre} </br>
-    $${producto.precio} </br>
-    Cantidad: ${producto.cantidad} </br>
+    <h1>
+    <img src='${producto.img}'>
+    ${producto.nombre}
+    $${producto.precio}
+    Cantidad: ${producto.cantidad}
     Total: ${producto.cantidad * producto.precio}
-    </h1>           
+    </h1>
     `;
     planillaContenido.append(contenidoCarrito);
 
     console.log(carrito.length);
 
     let eliminar = document.createElement('span');
-    eliminar.innerText = '❌';
+    eliminar.innerText = 'ELIMINAR';
     eliminar.className = 'borrarProducto';
     contenidoCarrito .append(eliminar);
 
@@ -58,7 +58,7 @@
                     eliminarProducto(event.target.value);
                     Swal.fire(
                         'Eliminado!',
-                        'El producto ha sido eliminado',
+                        ` ${producto.nombre } ha sido eliminado`,
                         'success'
                     )
                 }
@@ -78,7 +78,7 @@
 
     const eliminarProducto = () => {
         const foundId = carrito.find((element) =>element.id);
-
+        
         carrito = carrito.filter((carritoId) => {
             return carritoId !== foundId;   
         });
@@ -93,3 +93,4 @@
         cantidadCarrito.style.display = 'block';
         cantidadCarrito.innerText = carrito.length;
     };
+
