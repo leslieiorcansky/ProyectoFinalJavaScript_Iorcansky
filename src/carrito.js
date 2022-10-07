@@ -22,14 +22,20 @@
     carrito.forEach((producto) => {
     let contenidoCarrito = document.createElement('div');
     contenidoCarrito.className = 'PlanillaContenido';
+        contenidoCarrito.classList.add('col-12');
+        contenidoCarrito.classList.add('col-md-4');
+        contenidoCarrito.classList.add('mb-5');
+        contenidoCarrito.classList.add('d-flex');
+        contenidoCarrito.classList.add('justify-content-center');
     contenidoCarrito.innerHTML = `
-    <h1>
-    <img src='${producto.img}'>
-    ${producto.nombre}
-    $${producto.precio}
-    Cantidad: ${producto.cantidad}
-    Total: ${producto.cantidad * producto.precio}
-    </h1>
+        <div class="card text-dark" style="width: 18rem;">
+                <img class="card-img-top imagenCarrito" src="${producto.img}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">${producto.nombre}</h5>
+                    <p>$${producto.precio}</p>
+                    <p>Cantidad: ${producto.cantidad}</p>
+                    </div>
+        </div>
     `;
     planillaContenido.append(contenidoCarrito);
 
@@ -38,6 +44,7 @@
     let eliminar = document.createElement('span');
     eliminar.innerText = 'ELIMINAR';
     eliminar.className = 'borrarProducto';
+
     contenidoCarrito .append(eliminar);
 
     // eliminar.addEventListener('click', eliminarProducto);
