@@ -41,7 +41,10 @@ const cantidadCarrito = document.getElementById('cantidadCarrito');
                     <p>Cantidad: ${producto.cantidad}</p>
                     <button class="btn btn-danger botonSuma"> + </button>
                     <button class="btn btn-danger botonResta"> - </button>
+                    </br>
+                    <button class="btn btn-danger borrarProducto"> ELIMINAR </button>
                     </div>
+                    
         </div>
     `;
     planillaContenido.append(contenidoCarrito);
@@ -62,12 +65,12 @@ const cantidadCarrito = document.getElementById('cantidadCarrito');
     
 
     // console.log(carrito.length);
+    const eliminar = document.querySelector('.borrarProducto');
+    // let eliminar = document.createElement('span');
+    // eliminar.innerText = 'ELIMINAR';
+    // eliminar.className = 'borrarProducto';
 
-    let eliminar = document.createElement('span');
-    eliminar.innerText = 'ELIMINAR';
-    eliminar.className = 'borrarProducto';
-
-    contenidoCarrito .append(eliminar);
+    // contenidoCarrito.append(eliminar);
 
     // eliminar.addEventListener('click', eliminarProducto);
 

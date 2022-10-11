@@ -181,6 +181,7 @@
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   border: solid 5px #D90718;
   height: 50px;
+  text-align: center;
 }
 
 .botonResta {
@@ -192,6 +193,7 @@
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   border: solid 5px #D90718;
   height: 50px;
+  text-align: center;
 }
 
 .planillaContenido img {
@@ -269,14 +271,12 @@
 }
 
 .borrarProducto {
-  cursor: pointer; 
   background-color: #D90718;
   color: #fff;
   border-radius: 30px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   border: solid 5px #D90718;
-  height: min-content;
-  margin-top: 40%;
+  margin-top: 20px;
 }
 
 .imagenCarrito {
