@@ -1,4 +1,8 @@
-    const pintarCarrito = () => {    
+const verCarrito = document.getElementById('verCarrito');
+const planillaContenido = document.getElementById('planillaContenido');
+const cantidadCarrito = document.getElementById('cantidadCarrito');  
+  
+  const pintarCarrito = () => {    
         planillaContenido.innerHTML = '';
         planillaContenido.style.display = 'flex';
         
@@ -18,6 +22,7 @@
     });
   
     planillaHeader.append(planillaboton);
+
   
     carrito.forEach((producto) => {
     let contenidoCarrito = document.createElement('div');
@@ -34,12 +39,29 @@
                     <h5 class="card-title">${producto.nombre}</h5>
                     <p>$${producto.precio}</p>
                     <p>Cantidad: ${producto.cantidad}</p>
+                    <button class="btn btn-danger botonSuma"> + </button>
+                    <button class="btn btn-danger botonResta"> - </button>
                     </div>
         </div>
     `;
     planillaContenido.append(contenidoCarrito);
 
-    console.log(carrito.length);
+    const botonSuma = document.querySelector('.botonSuma');
+    const botonResta = document.querySelector('.botonResta');
+
+    botonSuma.addEventListener('click', () => {
+        producto.cantidad++
+        pintarCarrito();
+    });
+
+    botonResta.addEventListener('click', () => { 
+        producto.cantidad--
+        pintarCarrito();
+    });
+    
+    
+
+    // console.log(carrito.length);
 
     let eliminar = document.createElement('span');
     eliminar.innerText = 'ELIMINAR';

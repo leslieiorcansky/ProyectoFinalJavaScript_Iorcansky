@@ -1,7 +1,5 @@
 const tienda = document.getElementById('tienda');
-const verCarrito = document.getElementById('verCarrito');
-const planillaContenido = document.getElementById('planillaContenido');
-const cantidadCarrito = document.getElementById('cantidadCarrito');
+
 
 
 
