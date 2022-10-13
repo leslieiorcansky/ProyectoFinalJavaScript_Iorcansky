@@ -32,8 +32,9 @@ const cantidadCarrito = document.getElementById('cantidadCarrito');
         contenidoCarrito.classList.add('mb-5');
         contenidoCarrito.classList.add('d-flex');
         contenidoCarrito.classList.add('justify-content-center');
+      
     contenidoCarrito.innerHTML = `
-        <div class="card text-dark" style="width: 18rem;">
+        <div class="card text-dark  " style="width: 18rem;">
                 <img class="card-img-top imagenCarrito" src="${producto.img}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">${producto.nombre}</h5>
@@ -43,36 +44,31 @@ const cantidadCarrito = document.getElementById('cantidadCarrito');
                     <button class="btn btn-danger botonResta"> - </button>
                     </br>
                     <button class="btn btn-danger borrarProducto"> ELIMINAR </button>
-                    </div>
-                    
+                    </div>        
         </div>
     `;
     planillaContenido.append(contenidoCarrito);
 
-    const botonSuma = document.querySelector('.botonSuma');
-    const botonResta = document.querySelector('.botonResta');
+    const botonSuma = contenidoCarrito.querySelector(".botonSuma");
+    const botonResta = contenidoCarrito.querySelector(".botonResta");
 
     botonSuma.addEventListener('click', () => {
         producto.cantidad++
         pintarCarrito();
+        carritoCounter();
+        guardarCarritoStorage();
     });
 
     botonResta.addEventListener('click', () => { 
+        if ( producto.cantidad > 0 ) {
         producto.cantidad--
         pintarCarrito();
+        carritoCounter();
+        guardarCarritoStorage(); 
+        }
     });
-    
-    
 
-    // console.log(carrito.length);
-    const eliminar = document.querySelector('.borrarProducto');
-    // let eliminar = document.createElement('span');
-    // eliminar.innerText = 'ELIMINAR';
-    // eliminar.className = 'borrarProducto';
-
-    // contenidoCarrito.append(eliminar);
-
-    // eliminar.addEventListener('click', eliminarProducto);
+    const eliminar = contenidoCarrito.querySelector('.borrarProducto');
 
     eliminar.addEventListener('click', (event) => {
         event.stopPropagation();
@@ -123,5 +119,11 @@ const cantidadCarrito = document.getElementById('cantidadCarrito');
     
     const carritoCounter = () => {
         cantidadCarrito.style.display = 'block';
-        cantidadCarrito.innerText = carrito.length;
+        const totalCantidad = carrito.reduce((acc,item) =>  acc + item.cantidad,0);
+        cantidadCarrito.innerText = totalCantidad;
+        pintarCarrito();
+        // cantidadCarrito.innerText = carrito.length;
     };
+
+    
+   

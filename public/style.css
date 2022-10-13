@@ -5,22 +5,22 @@
     box-sizing: border-box;
     list-style-type: none;
     text-decoration: none; }
-  
+
   html {
     scroll-behavior: smooth; }
-  
+
   body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #fff;
     color: #F2071B; }
-  
+
   .container {
     max-width: 1200px;
     margin: 0 auto; }
-  
+
   .subrayado {
     text-decoration: none; }
-  
+
   header {
     background-color: #fff;
     display: flex;
@@ -29,7 +29,7 @@
     /* position: sticky; */
     top: 0;
     z-index: 10; }
-  
+
   .contentNavbar {
     display: flex;
     align-items: center; }
@@ -45,7 +45,7 @@
         .contentNavbar li a:hover {
           color: #F2071B;
           font-weight: bold; }
-  
+
   .navegacionHeader {
     display: flex;
     flex-direction: column;
@@ -60,7 +60,7 @@
         color: #D90718;
         font-weight: bold;
         border-bottom: solid 1px; }
-  
+
   .tamañoLogoHeader {
     width: 100px;
     height: 100px; }
@@ -98,9 +98,9 @@
   width: 100%;
 }
 
-.card img { 
+.card img {
   width: 90%;
-  height: 250px; 
+  height: 250px;
 }
 
 .nombre {
@@ -126,7 +126,7 @@
   display: none;
 
   position: fixed;
-  overflow: auto; 
+  overflow: auto;
   z-index: 9;
   top: 12vh;
   scrollbar-color: none;
@@ -135,6 +135,8 @@
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   border: solid 2px black;
 }
+
+
 
 .planillaContenido::-webkit-scrollbar {
   display: none;
@@ -164,13 +166,15 @@
 
 .planillaBotonHeader {
   cursor: pointer;
-  width: 20px;
-  height: 25px;
+  width: 50%;
+  height: 55px;
   font-size: 20px;
   margin-top: 20px;
   background-color: #fff;
   color: black;
 }
+
+
 
 .botonSuma {
   font-size: 20px;
@@ -294,3 +298,8 @@
   position: absolute;
   display: none;
 }
+/* .cardModal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+} */
