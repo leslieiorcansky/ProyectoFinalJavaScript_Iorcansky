@@ -121,7 +121,7 @@ const cantidadCarrito = document.getElementById('cantidadCarrito');
         cantidadCarrito.style.display = 'block';
         const totalCantidad = carrito.reduce((acc,item) =>  acc + item.cantidad,0);
         cantidadCarrito.innerText = totalCantidad;
-        pintarCarrito();
+        // pintarCarrito();
         // cantidadCarrito.innerText = carrito.length;
     };
 
