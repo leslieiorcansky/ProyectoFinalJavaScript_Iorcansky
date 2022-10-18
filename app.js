@@ -34,7 +34,7 @@ carritoCounter();
 let comprar = document.createElement('button');
 comprar.innerText = 'AÑADIR AL CARRITO';
 comprar.className = 'btn btn-danger buscador';
-// comprar.id = `button${producto.id}`;
+
 
 cards.append(comprar);
 
@@ -59,7 +59,6 @@ comprar.addEventListener('click', () => {
     });
   }
     guardarCarritoStorage();
-    console.log(carrito);
     carritoCounter();
 
    Toastify({
@@ -72,9 +71,6 @@ comprar.addEventListener('click', () => {
     }).showToast();
 
   });
-
-
-
 });
 };
 

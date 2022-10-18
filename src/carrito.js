@@ -26,13 +26,7 @@ const cantidadCarrito = document.getElementById('cantidadCarrito');
   
     carrito.forEach((producto) => {
     let contenidoCarrito = document.createElement('div');
-    contenidoCarrito.className = 'PlanillaContenido';
-        contenidoCarrito.classList.add('col-12');
-        contenidoCarrito.classList.add('col-md-4');
-        contenidoCarrito.classList.add('mb-5');
-        contenidoCarrito.classList.add('d-flex');
-        contenidoCarrito.classList.add('justify-content-center');
-      
+    contenidoCarrito.className = 'PlanillaContenido';      
     contenidoCarrito.innerHTML = `
         <div class="card text-dark  " style="width: 18rem;">
                 <img class="card-img-top imagenCarrito" src="${producto.img}" alt="Card image cap">
@@ -111,7 +105,6 @@ const cantidadCarrito = document.getElementById('cantidadCarrito');
             return carritoId !== foundId;   
         });
         guardarCarritoStorage();
-        console.log(carrito);
         carritoCounter();
         pintarCarrito();
     };
@@ -121,8 +114,6 @@ const cantidadCarrito = document.getElementById('cantidadCarrito');
         cantidadCarrito.style.display = 'block';
         const totalCantidad = carrito.reduce((acc,item) =>  acc + item.cantidad,0);
         cantidadCarrito.innerText = totalCantidad;
-        // pintarCarrito();
-        // cantidadCarrito.innerText = carrito.length;
     };
 
     
