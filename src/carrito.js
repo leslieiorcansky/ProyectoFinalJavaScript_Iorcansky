@@ -105,7 +105,6 @@ const cantidadCarrito = document.getElementById('cantidadCarrito');
         if (producto.cantidad > 1) {
             producto.cantidad--;
         } else {
-            //carrito = carrito.filter((el) => el.id !== id);
             carrito.splice(carrito.indexOf(producto), 1);
         }
 
