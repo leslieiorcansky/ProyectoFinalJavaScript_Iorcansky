@@ -77,7 +77,7 @@ const cantidadCarrito = document.getElementById('cantidadCarrito');
                 cancelButtonText: 'Cancelar'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    eliminarProducto(event.target.value);
+                    eliminarProducto(producto.id);
                     Swal.fire(
                         'Eliminado!',
                         ` ${producto.nombre } ha sido eliminado`,
@@ -98,12 +98,17 @@ const cantidadCarrito = document.getElementById('cantidadCarrito');
 
     verCarrito.addEventListener('click',pintarCarrito);
 
-    const eliminarProducto = () => {
-        const foundId = carrito.find((element) =>element.id);
-        
-        carrito = carrito.filter((carritoId) => {
-            return carritoId !== foundId;   
-        });
+    const eliminarProducto = (id) => {
+        const producto = carrito.find((el) => el.id === id);
+        console.log(producto);
+
+        if (producto.cantidad > 1) {
+            producto.cantidad--;
+        } else {
+            //carrito = carrito.filter((el) => el.id !== id);
+            carrito.splice(carrito.indexOf(producto), 1);
+        }
+
         guardarCarritoStorage();
         carritoCounter();
         pintarCarrito();
